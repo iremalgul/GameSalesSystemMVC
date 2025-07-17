@@ -1,0 +1,56 @@
+﻿@model List<GameSalesSystemMVC.Dtos.UserDto>
+@{
+    ViewBag.Title = "User Index";
+}
+
+<main>
+    <div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    All Users
+
+                    <a href="/Admin/User/Add" class="btn btn-primary btn-icon-split ml-4">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-flag"></i>
+                        </span>
+                        <span class="text">Add New User</span>
+                    </a>
+                </h6>
+
+            </div>
+            <div class="card-body" id="IndexPartialTable">
+                @{ Html.RenderAction("IndexPartialTable", "User");}
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts
+{
+    <script>
+        function DeleteUser(button)
+        {
+            var userDto =
+            {
+                Id: $(button).data('id')
+            };
+
+            ajaxSendDataWithLoadingGetData(userDto, '/Admin/User/DeleteUser', $('body'), function (response) {
+                if (response.isSuccess) {
+                    SuccessMessage("Success", response.Message, function () {
+                        ajaxPartialView(null, '/Admin/User/IndexPartialTable', $('body'),  $('#IndexPartialTable'), function () {
+                            $("#dataTable").DataTable();
+                        });
+                    });
+                }
+                else {
+                    ErrorMessage("Unsuccess", response.Message, function () {
+
+                    });
+                }
+            });
+        }
+
+    </script>
+}

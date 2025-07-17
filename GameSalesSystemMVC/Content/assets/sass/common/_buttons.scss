@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+10. Button
+----------------------------------------------------------------*/
+.cs_btn.cs_style_1 {
+  display: inline-block;
+  background-color: $primary;
+  color: $white;
+  border: 2px solid $primary;
+  padding: 13px 32px;
+  text-align: center;
+  &:hover {
+    background-color: transparent;
+    color: $primary;
+  }
+  @media (max-width: 991px) {
+    padding: 10px 25px;
+  }
+  &.cs_accent_btn {
+    background-color: $accent;
+    border-color: $accent;
+    &:hover {
+      background-color: transparent;
+      color: $accent;
+    }
+  }
+  &.cs_type_1 {
+    background-color: transparent;
+    color: $primary;
+    &:hover {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}
+/*---------------------------------
+ Single product page btn styling
+-----------------------------------*/
+.cs_heart_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid $primary;
+  background-color: transparent;
+  font-size: 18px;
+  color: $primary;
+  @media (max-width: 991px) {
+    width: 44px;
+    height: 44px;
+  }
+
+  &:hover {
+    color: #fff;
+    border-color: $accent;
+    background-color: $accent;
+  }
+}
+.cs_action_btns {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  @media (max-width: 991px) {
+    gap: 10px;
+  }
+}
+
+/*---------------------------------
+ Scroll To Top btn styling
+-----------------------------------*/
+.cs_scrollup_btn {
+  width: 45px;
+  height: 45px;
+  background-color: $accent;
+  color: $white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: scale(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  z-index: 99;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(0.6);
+    animation: scale_full 3s cubic-bezier(0.28, 1.84, 0.55, -0.11) infinite;
+  }
+  cursor: pointer;
+  &.cs_scrollup_show {
+    transform: scale(1);
+  }
+  i {
+    position: relative;
+    z-index: 2;
+    color: $primary;
+  }
+}
+@keyframes scale_full {
+  50% {
+    transform: scale(1);
+    // border: 1px solid $accent;
+  }
+}

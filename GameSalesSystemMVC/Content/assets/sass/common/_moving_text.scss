@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+13. Moving Text
+----------------------------------------------------------------*/
+.cs_moving_text_wrap.cs_style_1 {
+  padding: 50px 0;
+  .cs_moving_text_in {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: 100%;
+    .cs_moving_text {
+      animation: slide-left 30s linear infinite;
+    }
+    svg {
+      margin: 0 40px;
+    }
+  }
+  &:hover {
+    .cs_moving_text {
+      animation-play-state: paused;
+    }
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

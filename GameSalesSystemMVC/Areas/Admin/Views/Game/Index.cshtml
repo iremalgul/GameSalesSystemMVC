@@ -1,0 +1,53 @@
+﻿@model List<GameSalesSystemMVC.Dtos.GameDto>
+@{
+    ViewBag.Title = "Game Index";
+}
+   
+<main>
+    <div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    All Games
+                    <a href="/Admin/Game/Add" class="btn btn-primary btn-icon-split ml-4">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-flag"></i>
+                        </span>
+                        <span class="text">Add New Game</span>
+                    </a>
+                </h6>
+            </div>
+            <div class="card-body" id="IndexPartialTable">
+                @{ Html.RenderAction("IndexPartialTable", "Game");}
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts
+{
+    <script>
+        function DeleteGame(button) {
+            var gameDto =
+            {
+                Id: $(button).data('id')
+            };
+
+            ajaxSendDataWithLoadingGetData(gameDto, '/Admin/Game/DeleteGame', $('body'), function (response) {
+                if (response.isSuccess) {
+                    SuccessMessage("Success", response.Message, function () {
+                        ajaxPartialView(null, '/Admin/Game/IndexPartialTable', $('body'), $('#IndexPartialTable'), function () {
+                            $("#dataTable").DataTable();
+                        });
+                    });
+                }
+                else {
+                    ErrorMessage("Unsuccess", response.Message, function () {
+
+                    });
+                }
+            });
+        }
+
+    </script>
+}

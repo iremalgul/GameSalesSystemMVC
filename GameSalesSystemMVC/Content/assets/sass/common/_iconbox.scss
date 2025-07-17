@@ -1,0 +1,72 @@
+/*--------------------------------------------------------------
+11. IconBox
+----------------------------------------------------------------*/
+.cs_iconbox.cs_style_1 {
+  padding-left: 70px;
+  .cs_iconbox_icon {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    transition: all 0.5s cubic-bezier(0.28, 1.84, 0.55, -0.11);
+  }
+  .cs_iconbox_title {
+    margin-bottom: 2px;
+  }
+  &:hover {
+    .cs_iconbox_icon {
+      color: $accent;
+      transform: scale(1.1);
+    }
+  }
+}
+.cs_iconbox.cs_style_2 {
+  background-color: $white;
+  box-shadow: 0px 0px 10px 1px rgba(160, 160, 160, 0.25);
+  padding: 35px 35px 30px;
+  transition: all 0.5s ease;
+  @media (max-width: 1199px) {
+    padding: 35px 25px 30px;
+  }
+  .cs_iconbox_icon {
+    width: 76px;
+    height: 52px;
+    margin-bottom: 15px;
+  }
+  .cs_iconbox_title {
+    margin-bottom: 11px;
+  }
+  &:hover {
+    transform: scale(1.03) translateY(6px);
+  }
+}
+.cs_iconbox.cs_style_3 {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  @media (max-width: 400px) {
+    gap: 14px;
+  }
+  @media (max-width: 350px) {
+    br {
+      display: none;
+    }
+  }
+  .cs_iconbox_icon {
+    width: 88px;
+    height: 88px;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .cs_iconbox_title {
+    margin-bottom: 8px;
+  }
+  .cs_iconbox_info {
+    flex: 1;
+  }
+}

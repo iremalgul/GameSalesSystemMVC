@@ -1,0 +1,53 @@
+﻿@model List<GameSalesSystemMVC.Dtos.PurchaseDto>
+@{
+    ViewBag.Title = "ShowUserPurchases";
+}
+
+<main>
+    <div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">All Purchases</h6>
+            </div>
+            <div class="card-body" id="PurchasesTable">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>User</th>
+                                <th>Purchase Date</th>
+                                <th>Purchase Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>User</th>
+                                <th>Purchase Date</th>
+                                <th>Purchase Amount</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Id</th>
+                                    <th>@item.User.NameSurname</th>
+                                    <td>@item.PurchaseDate.ToShortDateString()</td>
+                                    <td><span>&#36;@item.PurchaseAmount</span></td>
+                                    <td> <a href=@Url.Action("Details","Purchase",new {id=item.Id})>See details</a> </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

@@ -1,0 +1,69 @@
+﻿@model List<GameSalesSystemMVC.Dtos.ReviewDto>
+@{
+    ViewBag.Title = "ShowGameReviews";
+}
+@{ double avg_rating = 0.0; }
+@try
+{
+     avg_rating = Model.Average(i => i.Rating);
+}
+catch (Exception)
+{
+
+}
+<main>
+    <div>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Game Reviews</h6>
+            </div>
+            <div class="card-body" id="ReviewTable">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>User</th>
+                                <th>Game</th>
+                                <th>Review Date</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>User</th>
+                                <th>Game</th>
+                                <th>Review Date</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Id</th>
+                                    <td>@item.User.NameSurname</td>
+                                    <td>@item.Game.Title</td>
+                                    <td>@item.ReviewDate.ToShortDateString()</td>
+                                    <td>@item.Rating</td>
+                                    <td>@item.Comment</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        Avarage rating : @avg_rating
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

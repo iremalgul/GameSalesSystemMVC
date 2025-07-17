@@ -1,0 +1,6 @@
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\bin\Debug\Interfaces.dll
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\obj\Debug\Interfaces.dll
+C:\Users\İrem\Source\Repos\GameSalesSystemMVC\Interfaces\obj\Debug\Interfaces.pdb

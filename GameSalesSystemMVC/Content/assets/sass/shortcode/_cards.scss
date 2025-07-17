@@ -1,0 +1,153 @@
+/*--------------------------------------------------------------
+19. Cards
+----------------------------------------------------------------*/
+.cs_card.cs_style_1 {
+  .cs_card_thumb {
+    padding-right: 75px;
+    @media (max-width: 1199px) {
+      padding-right: 40px;
+    }
+    @media (max-width: 991px) {
+      padding-right: 0px;
+    }
+  }
+  .cs_card_title {
+    margin-bottom: 27px;
+    @media (max-width: 991px) {
+      margin-bottom: 15px;
+    }
+  }
+  .cs_card_subtitle {
+    margin-bottom: 47px;
+    @media (max-width: 991px) {
+      margin-bottom: 30px;
+    }
+  }
+}
+.cs_card.cs_style_2 {
+  .cs_card_thumb {
+    width: 50vw;
+    min-height: 650px;
+    @media (max-width: 991px) {
+      width: 100%;
+      min-height: 350px;
+    }
+  }
+  .cs_card_title {
+    margin-bottom: 27px;
+    @media (max-width: 991px) {
+      margin-bottom: 15px;
+    }
+  }
+  .cs_card_subtitle {
+    margin-bottom: 47px;
+    @media (max-width: 991px) {
+      margin-bottom: 30px;
+    }
+  }
+  @media (max-width: 991px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+  }
+}
+.cs_card.cs_style_3 {
+  background-color: rgba($accent, 0.3);
+  padding: 0;
+  .cs_card_thumb {
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .cs_card_info {
+    padding: 120px 60px 130px 75px;
+    @media (max-width: 1400px) {
+      padding: 120px 40px 130px 25px;
+    }
+    @media (max-width: 991px) {
+      padding: 30px 30px 45px;
+    }
+    @media (max-width: 575px) {
+      padding: 25px 25px 40px;
+    }
+  }
+  .cs_card_title {
+    margin-bottom: 13px;
+  }
+  .cs_card_subtitle {
+    margin-bottom: 30px;
+  }
+}
+.cs_card.cs_style_4 {
+  .cs_card_thumb {
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+  .cs_card_badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 50px 0px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 234px;
+    min-width: 244px;
+    text-align: center;
+    padding: 57px 50px;
+    @media (max-width: 991px) {
+      min-height: 194px;
+      min-width: 200px;
+      text-align: center;
+      padding: 47px 40px;
+    }
+    .cs_shape_1 {
+      position: absolute;
+      top: 50px;
+      left: 45px;
+      display: flex;
+      @media (max-width: 991px) {
+        top: 45px;
+        left: 40px;
+      }
+    }
+    .cs_shape_2 {
+      position: absolute;
+      bottom: 48px;
+      right: 43px;
+      display: flex;
+      @media (max-width: 991px) {
+        bottom: 45px;
+        right: 40px;
+      }
+    }
+  }
+
+  .cs_card_title {
+    margin-bottom: 22px;
+  }
+  .cs_card_subtitle {
+    margin-bottom: 34px;
+  }
+  .cs_card_feature_list {
+    .cs_store_feature {
+      padding-left: 38px;
+      margin-bottom: 33px;
+      &:last-child {
+        margin-bottom: 43px;
+      }
+      .cs_feature_title {
+        margin-bottom: 5px;
+      }
+      .cs_feature_icon {
+        top: 3px;
+        left: 0;
+      }
+    }
+  }
+}

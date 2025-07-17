@@ -1,0 +1,146 @@
+/*--------------------------------------------------------------
+15. Newsletter
+----------------------------------------------------------------*/
+.cs_newsletter.cs_style_1 {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .cs_newsletter_shape {
+    width: 100%;
+    height: 100%;
+    background-color: #fc5f49;
+    position: absolute;
+    top: 0;
+    left: 39%;
+    transform: skew(-38deg);
+    @media (max-width: 1400px) {
+      transform: skew(-32deg);
+    }
+    @media (max-width: 1199px) {
+      left: 30%;
+    }
+    @media (max-width: 991px) {
+      left: 0%;
+      transform: initial;
+    }
+  }
+  .cs_newsletter_thumb {
+    position: absolute;
+    background-color: $gray;
+    height: 100%;
+    width: 54%;
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+  .cs_newsletter_text {
+    padding: 120px 90px 140px;
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    @media (max-width: 1400px) {
+      padding: 120px 60px 140px;
+    }
+    @media (max-width: 991px) {
+      padding: 70px 30px 80px;
+      text-align: center;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  .cs_newsletter_title {
+    margin-bottom: 6px;
+  }
+  .cs_newsletter_subtitle {
+    margin-bottom: 34px;
+  }
+  .cs_newsletter_form {
+    display: flex;
+    gap: 10px;
+    @media (max-width: 991px) {
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 450px) {
+      flex-direction: column;
+      .cs_btn {
+        width: 100%;
+      }
+    }
+  }
+  .cs_form_field {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 0;
+    @media (max-width: 450px) {
+      padding: 9px 20px;
+    }
+  }
+}
+
+.cs_newsletter.cs_style_2 {
+  padding: 120px 60px 140px;
+  @media (max-width: 991px) {
+    padding: 70px 30px 80px;
+  }
+  @media (max-width: 500px) {
+    padding: 70px 20px 80px;
+  }
+  .cs_newsletter_text {
+    position: relative;
+    z-index: 2;
+  }
+  .cs_newsletter_form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 575px) {
+      flex-direction: column;
+    }
+  }
+  .cs_btn.cs_style_1 {
+    display: inline-block;
+    background-color: $accent;
+    color: $white;
+    border-color: $accent;
+    &:hover {
+      background-color: transparent;
+      border-color: $white;
+    }
+  }
+  .cs_newsletter_title {
+    margin-bottom: 6px;
+  }
+  .cs_newsletter_subtitle {
+    margin-bottom: 34px;
+  }
+  .cs_form_field {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 0;
+  }
+  .cs_newsletter_shape1 {
+    bottom: 0;
+    right: 3%;
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+  .cs_newsletter_shape2 {
+    top: 0;
+    left: 3%;
+    transform: translate(5%, 0%) rotate(180deg);
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+}

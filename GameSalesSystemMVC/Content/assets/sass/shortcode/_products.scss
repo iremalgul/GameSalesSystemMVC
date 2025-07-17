@@ -1,0 +1,136 @@
+/*--------------------------------------------------------------
+20. Products
+----------------------------------------------------------------*/
+.cs_product.cs_style_1 {
+  &.cs_bordered {
+    border: 1px solid rgba($accent, 0.1);
+    padding-bottom: 18px;
+  }
+  .cs_product_thumb {
+    background-color: rgba($accent, 0.1);
+    margin-bottom: 14px;
+    text-align: center;
+    img {
+      display: inline-block;
+    }
+  }
+  .cs_product_thumb_overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba($accent, 0.2);
+    backdrop-filter: blur(5px);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  .cs_discount_badge {
+    top: 30px;
+    left: 30px;
+    padding: 10px;
+  }
+  .cs_cart_badge {
+    top: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &.cs_middle {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .cs_cart_icon {
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0);
+      transition: all 0.3s ease;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+  .cs_cart_btn {
+    width: calc(100% - 60px);
+    padding: 15px 20px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: all 0.4s ease;
+    bottom: 30px;
+    &:hover {
+      background-color: $white;
+    }
+  }
+  .cs_product_title {
+    line-height: 1.5em;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    .cs_cart_icon {
+      transform: scale(1);
+    }
+    .cs_cart_btn {
+      transform: translateX(-50%) scale(1);
+    }
+    .cs_product_thumb_overlay {
+      opacity: 1;
+    }
+  }
+  &.cs_type_1 {
+    .cs_product_thumb {
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      @media (max-width: 500px) {
+        height: 320px;
+      }
+    }
+  }
+}
+.cs_product.cs_style_2 {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 424px;
+  margin-left: auto;
+  padding-bottom: 45px;
+  .cs_product_thumb {
+    height: 355px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .cs_product_price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .cs_discount_badge {
+    top: 30px;
+    left: 30px;
+    padding: 10px;
+  }
+  .cs_product_title {
+    margin-bottom: 8px;
+  }
+}

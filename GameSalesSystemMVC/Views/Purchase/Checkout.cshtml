@@ -1,0 +1,151 @@
+﻿@model List<GameSalesSystemMVC.Dtos.CartGameDto>
+@{
+    ViewBag.Title = "Checkout";
+}
+@{decimal total = 0; }
+<body>
+    <section>
+        <div class="container">
+            <div class="cs_height_80 cs_height_lg_60"></div>
+            <div class="cs_shop_page_heading text-center">
+                <h1 class="cs_fs_50 cs_bold">Checkout</h1>
+                <div class="cs_shop_breadcamp cs_medium">
+                    <a href="index.html">Home</a>
+                    <svg width="17" height="8" viewBox="0 0 17 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.3536 4.35355C16.5488 4.15829 16.5488 3.84171 16.3536 3.64645L13.1716 0.464467C12.9763 0.269205 12.6597 0.269205 12.4645 0.464467C12.2692 0.659729 12.2692 0.976312 12.4645 1.17157L15.2929 4L12.4645 6.82843C12.2692 7.02369 12.2692 7.34027 12.4645 7.53553C12.6597 7.7308 12.9763 7.7308 13.1716 7.53554L16.3536 4.35355ZM-4.37114e-08 4.5L16 4.5L16 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#5E5E5E" />
+                    </svg>
+                    <span>Checkout</span>
+                </div>
+            </div>
+            <div class="cs_height_80 cs_height_lg_60"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7">
+                <p class="cs_checkout-alert m-0">Have a coupon? <a href="">Click here to enter your code</a></p>
+                <div class="cs_height_40 cs_height_lg_40"></div>
+                <h2 class="cs_checkout-title cs_fs_28">Billing Details</h2>
+                <div class="cs_height_45 cs_height_lg_40"></div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label class="cs_shop-label">First Name *</label>
+                        <input type="text" class="cs_shop-input">
+                        <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="cs_shop-label">Last Name *</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Company name (optional)</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Country / Region *</label>
+                        <select class="cs_shop-input">
+                            <option value="States">United States (US)</option>
+                            <option value="Kingdom">United Kingdom</option>
+                            <option value="Kanada">Kanada</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Street address *</label>
+                        <input type="text" class="cs_shop-input" placeholder="House number and street name">
+                        <input type="text" class="cs_shop-input" placeholder="Apartment, suite, unit, etc (optional) ">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Town / City *</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">State *</label>
+                        <select class="cs_shop-input">
+                            <option value="California">California</option>
+                            <option value="Gercy">New Gercy</option>
+                            <option value="Daiking">Daiking</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">ZIP Code *</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Phone *</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="cs_shop-label">Email address *</label>
+                        <input type="text" class="cs_shop-input">
+                    </div>
+                </div>
+                <div class="cs_height_45 cs_height_lg_45"></div>
+                <h2 class="cs_checkout-title">Additional information</h2>
+                <div class="cs_height_25 cs_height_lg_25"></div>
+                <label class="cs_shop-label">Order notes (optional)</label>
+                <textarea cols="30" rows="6" class="cs_shop-input"></textarea>
+                <div class="cs_height_30 cs_height_lg_30"></div>
+            </div>
+            <div class="col-xl-5">
+                <div class="cs_shop-side-spacing">
+                    <div class="cs_shop-card">
+                        <h2 class="cs_fs_21">Your order</h2>
+                        <table>
+                            <tbody>
+                                <tr class="cs_semi_bold">
+                                    <td>Game</td>
+                                    <td class="text-end">Amount</td>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    total = item.Cart.TotalCost;
+                                    <tr>
+                                        <td>@item.Game.Title</td>
+                                        <td class="text-end">$@item.Game.Price</td>
+                                    </tr>
+                                }
+
+
+
+                                <tr class="cs_semi_bold">
+                                    <td>Total</td>
+                                    <td class="text-end">$@total</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="cs_height_30 cs_height_lg_30"></div>
+                        <a href="@Url.Action("AddPurchase","Purchase")" class="cs_btn cs_style_1 cs_fs_16 cs_medium w-100">Place Order</a>
+                    </div>
+                    <div class="cs_height_50 cs_height_lg_30"></div>
+                    <div class="cs_shop-card">
+                        <h2 class="cs_fs_21">Payment</h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-check cs_fs_16">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked="">
+                                            <label class="form-check-label m-0 cs_semi_bold" for="flexCheckDefault">
+                                                Cash on delivery
+                                            </label>
+                                        </div>
+                                        <p class="m-0 cs_payment_text">Pay with cash upon delivery.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="cs_height_20 cs_height_lg_20"></div>
+                        <p class="m-0 cs_payment_text">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="">privacy policy</a>.</p>
+                        <div class="cs_height_20 cs_height_lg_20"></div>
+                        <button class="cs_btn cs_style_1 cs_fs_16 cs_medium w-100">Pay Now</button>
+                    </div>
+                    <div class="cs_height_30 cs_height_lg_30"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+

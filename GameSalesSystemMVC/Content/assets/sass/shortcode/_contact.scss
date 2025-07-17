@@ -1,0 +1,16 @@
+/*--------------------------------------------------------------
+26. Contact
+----------------------------------------------------------------*/
+.cs_location_map {
+  iframe {
+    height: 100%;
+    min-height: 800px;
+    width: 100%;
+    border: none;
+    filter: grayscale(100%);
+    display: block;
+    @media (max-width: 991px) {
+      min-height: 400px;
+    }
+  }
+}

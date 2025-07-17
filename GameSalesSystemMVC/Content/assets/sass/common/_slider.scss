@@ -1,0 +1,260 @@
+/*--------------------------------------------------------------
+5. Slider
+----------------------------------------------------------------*/
+.slick-slide > div {
+  display: flex;
+}
+.slick_slide_in {
+  width: 100%;
+}
+.cs_slider {
+  .cs_slider_wrapper {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .slick_slide_in {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+.cs_pagination.cs_style_1 {
+  display: inline-block;
+  position: absolute;
+  left: 75px;
+  bottom: 70px;
+  @media (max-width: 1400px) {
+    bottom: 40px;
+    left: 45px;
+  }
+  @media (max-width: 1199px) {
+    left: 25px;
+  }
+  @media (max-width: 991px) {
+    left: 15px;
+  }
+  @media (max-width: 991px) {
+    left: 15px;
+    bottom: 80px;
+  }
+  .slick-dots {
+    margin-top: 50px;
+  }
+}
+.cs_pagination.cs_style_1,
+.cs_pagination.cs_style_2 {
+  .slick-dots {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0;
+    margin-bottom: 0;
+
+    button {
+      padding: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    li {
+      overflow: hidden;
+      border: none;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background-color: transparent;
+      font-size: 0px;
+      position: relative;
+      padding: 0;
+      flex: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+
+      &::after {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background-color: rgba($secondary, 0.5);
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.4s ease;
+      }
+    }
+
+    .slick-active {
+      border: 1px solid $primary;
+      &::after {
+        background-color: $primary;
+      }
+    }
+  }
+}
+.cs_pagination.cs_style_2 {
+  display: flex;
+  justify-content: center;
+  .slick-dots {
+    margin-top: 35px;
+  }
+}
+.cs_pagingInfo.cs_style_1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*-----------------------------------
+Slider arrow design
+-------------------------------------*/
+.cs_slider_arrows.cs_style_1 {
+  .cs_slider_arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    &:hover {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .cs_right_arrow {
+    right: calc((100vw - 1300px) / 2 / 2);
+    margin-right: -18px;
+    @media (max-width: 1400px) {
+      right: calc((100vw - 1140px) / 2 / 2);
+      margin-right: -13px;
+    }
+    @media (max-width: 1199px) {
+      right: calc((100vw - 960px) / 2 / 2);
+      margin-right: -13px;
+    }
+    @media (max-width: 1050px) {
+      margin-right: 0px;
+    }
+  }
+  .cs_left_arrow {
+    left: calc((100vw - 1300px) / 2 / 2);
+    margin-left: -18px;
+    @media (max-width: 1400px) {
+      left: calc((100vw - 1140px) / 2 / 2);
+      margin-left: -13px;
+    }
+    @media (max-width: 1199px) {
+      left: calc((100vw - 960px) / 2 / 2);
+      margin-left: -13px;
+    }
+    @media (max-width: 1050px) {
+      margin-left: 0px;
+    }
+  }
+}
+.cs_slider_arrows.cs_style_2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  .cs_slider_arrow {
+    width: 45px;
+    height: 45px;
+    border: 1px solid $secondary;
+    color: $secondary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #fff;
+      background-color: $accent;
+      border-color: $accent;
+    }
+  }
+}
+.cs_slider_arrows.cs_style_3 {
+  .cs_slider_arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .cs_left_arrow {
+    left: 50px;
+  }
+  .cs_right_arrow {
+    right: 50px;
+  }
+}
+.cs_hover_arrow {
+  .cs_slider_arrows.cs_style_3 {
+    opacity: 0;
+  }
+  &:hover {
+    .cs_slider_arrows.cs_style_3 {
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .cs_hide_mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .cs_hide_desktop {
+    display: none !important;
+  }
+}
+.slick-slide {
+  .cs_hero_text {
+    position: relative;
+    left: 60px;
+    opacity: 0;
+    transition: all 0.7s ease;
+  }
+  &.slick-active {
+    .cs_hero_text {
+      left: 0px;
+      opacity: 1;
+      transition-delay: 0.5s;
+    }
+  }
+}
+.cs_slides_numbers {
+  position: absolute;
+  bottom: 12%;
+  left: 75px;
+  font-weight: 600;
+  @media (max-width: 991px) {
+    bottom: 60px;
+    right: 40px;
+    left: initial;
+  }
+  @media (max-width: 380px) {
+    right: 25px;
+    bottom: 56px;
+  }
+  .active {
+    font-size: 37px;
+    color: $primary;
+    @media (max-width: 380px) {
+      font-size: 28px;
+    }
+  }
+  .cs_slide_seperator {
+    position: relative;
+    bottom: 3px;
+    margin-left: 1px;
+  }
+}

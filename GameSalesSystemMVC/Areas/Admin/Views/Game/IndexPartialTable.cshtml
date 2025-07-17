@@ -1,0 +1,82 @@
+﻿<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Picture</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Release Date</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Picture</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Release Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <th>
+                        @if (item.Picture != null)
+                        {
+                            <img src="~/Pictures/@item.Picture" style="height: 150px;width: 150px;" />
+                        }
+
+                    </th>
+                    <td>@item.Title</td>
+                    <td><span>&#36;@item.Price</span></td>
+                    <td>@item.Genre</td>
+                    <td>@item.Description</td>
+                    <td>@item.ReleaseDate.ToShortDateString()</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Game", new {id=item.Id})" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Edit</span>
+                        </a>
+
+
+                        <button onclick="DeleteGame(this)" data-id="@item.Id" class="btn btn-danger btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text">Delete</span>
+                        </button>
+                    </td>
+                    <td>
+                        <div class="dropdown mb-4">
+                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                See
+                            </button>
+                            <div class="dropdown-menu animated--fade-in"
+                                 aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("ShowGameReviews", "Review", new {id=item.Id})">Reviews</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

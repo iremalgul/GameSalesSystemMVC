@@ -1,0 +1,91 @@
+/*--------------------------------------------------------------
+14. Sidebar
+----------------------------------------------------------------*/
+.cs_search_box {
+  position: relative;
+  border-radius: 0;
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid $border;
+    transition: all 0.3s ease;
+    &::placeholder {
+      color: $secondary;
+      font-size: 14px;
+      line-height: 1.572em;
+    }
+    &:focus {
+      border-color: $accent;
+    }
+  }
+
+  .cs_search_icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    cursor: pointer;
+
+    i {
+      transition: all 1s cubic-bezier(0.28, 1.84, 0.55, -0.11);
+    }
+
+    &:hover {
+      color: $accent;
+      i {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+.cs_sidebar_widget_title {
+  margin-bottom: 19px;
+}
+.cs_category_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
+.cs_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  a {
+    border: 1px solid rgba(94, 94, 94, 0.2);
+    display: inline-block;
+    padding: 4px 15px;
+    &:hover {
+      border-color: $accent;
+    }
+  }
+}
+.cs_sidebar_widget {
+  &:not(:last-child) {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(94, 94, 94, 0.2);
+  }
+}
+.cs_sidebar_widget.cs_search {
+  border: none;
+  padding-bottom: 0;
+}
+.cs_blog_sidebar {
+  padding-left: 100px;
+  @media (max-width: 1400px) {
+    padding-left: 60px;
+  }
+  @media (max-width: 1199px) {
+    padding-left: 40px;
+  }
+  @media (max-width: 991px) {
+    padding-left: 0px;
+  }
+}

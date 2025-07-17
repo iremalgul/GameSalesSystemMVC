@@ -1,0 +1,125 @@
+﻿@model GameSalesSystemMVC.Dtos.GameDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+@{
+    string formattedDate = Model.ReleaseDate.ToString("yyyy-MM-dd");
+}
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Game Information</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <input hidden type="text" class="form-control form-control-user" id="Id"
+                                           value="@Model.Id">
+                                    <input type="text" class="form-control form-control-user" id="Title"
+                                           placeholder="Title" value="@Model.Title">
+                                </div>
+
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="Genre"
+                                           placeholder="Genre" value="@Model.Genre">
+                                </div>
+
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="Description"
+                                           placeholder="Description" value="@Model.Description">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="date" class="form-control form-control-user" id="ReleaseDate"
+                                           placeholder="Release Date" value="@formattedDate">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user money" id="Price"
+                                           placeholder="$ Price" value="@Model.Price">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="file" class="form-control form-control-user" id="File"
+                                           placeholder="Picture">
+                                    <img src="~/Pictures/@Model.Picture" style="height: 150px;width: 150px;" />
+                                </div>
+                                <button onclick="UpdateGame()" class="btn btn-primary btn-user btn-block">
+                                    Update
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+@section scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+    <script>
+    $('.money').mask("#,##0.00", { reverse: true });
+
+    function UpdateGame() {
+
+        var formData = new FormData();
+
+        var file = document.getElementById("File").files[0];
+        formData.append("File", file);
+
+        var Id = $('#Id').val();
+        var Title = $('#Title').val();
+        var Genre = $('#Genre').val();
+        var Description = $('#Description').val();
+        var ReleaseDate = $('#ReleaseDate').val();
+        var Price = $('#Price').val();
+
+        formData.append("Title", Title);
+        formData.append("Genre", Genre);
+        formData.append("Description", Description);
+        formData.append("ReleaseDate", ReleaseDate);
+        formData.append("Price", Price);
+        formData.append("Id", Id);
+
+        var loading = new ajaxLoader($('body'), { classOveride: 'blue-loader' });
+
+          $.ajax({
+              type: "POST",
+              url: "@(Url.Action("UpdateGame", "Game"))",
+              data: formData,
+              processData: false,
+              contentType: false,
+              dataType: 'json',
+              success: function () {
+                  loading.remove();
+                  window.location.href = "@(Url.Action("Index", "Game"))";
+              },
+
+               error: function (xhr, ajaxOptions, thrownError) {
+                  loading.remove();
+                  alert('İşlem Gerçekleştirilemedi.Sistem Yöneticinizle İletişime Geçiniz!');
+                  }
+           });
+
+
+    }
+
+    </script>
+}

@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+9. Instagram
+----------------------------------------------------------------*/
+.cs_instagram {
+  width: 100%;
+  display: flex;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+  .cs_instagram_item {
+    flex: 1;
+    overflow: hidden;
+    &:hover {
+      .cs_instagram_overlay {
+        opacity: 1;
+      }
+    }
+    @media (max-width: 767px) {
+      flex: none;
+      width: 33.333333%;
+    }
+  }
+  .cs_instagram_thumb {
+    padding-top: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .cs_instagram_overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(252, 95, 73, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    color: $primary;
+    font-size: 31px;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+}

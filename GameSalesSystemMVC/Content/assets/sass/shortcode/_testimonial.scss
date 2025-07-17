@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------
+21. Testimonial
+----------------------------------------------------------------*/
+.cs_testimonial.cs_style_1 {
+  .cs_testimonial_title {
+    margin-bottom: 38px;
+  }
+  .cs_testimonial_text {
+    margin: 0 0 45px 0;
+    font-style: normal;
+    @media (max-width: 991px) {
+      margin: 0 0 30px 0;
+      br {
+        display: none;
+      }
+    }
+  }
+  .cs_testimonial_user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cs_avatar_thumb {
+    margin-bottom: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 991px) {
+      margin-bottom: 10px;
+    }
+  }
+  .cs_avatar_subtitle {
+    color: $black;
+  }
+}

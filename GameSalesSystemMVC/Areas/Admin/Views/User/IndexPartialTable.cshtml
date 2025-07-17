@@ -1,0 +1,77 @@
+﻿<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name Surname</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Country</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Name Surname</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Country</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.NameSurname</td>
+                    <td>@item.Username</td>
+                    <td>@item.Password</td>
+                    <td>@item.Country</td>
+                    <td>@item.Email</td>
+                    <td>@item.DateOfBirth.ToShortDateString()</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "User", new {id=item.Id})" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Edit</span>
+                        </a>
+
+
+                        <button onclick="DeleteUser(this)" data-id="@item.Id" class="btn btn-danger btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text">Delete</span>
+                        </button>
+                    </td>
+                    <td>
+                        <div class="dropdown mb-4">
+                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                See
+                            </button>
+                            <div class="dropdown-menu animated--fade-in"
+                                 aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="@Url.Action("ShowUserCart", "Cart", new {id=item.Id})">Cart</a>
+                                <a class="dropdown-item" href="@Url.Action("ShowUserPurchases", "Purchase", new {id=item.Id})">Purchases</a>
+                                <a class="dropdown-item" href="@Url.Action("ShowUserReviews", "Review", new {id=item.Id})">Reviews</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

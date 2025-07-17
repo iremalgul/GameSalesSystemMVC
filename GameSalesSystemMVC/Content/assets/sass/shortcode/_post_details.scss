@@ -1,0 +1,144 @@
+/*--------------------------------------------------------------
+23. Post Details
+----------------------------------------------------------------*/
+.cs_post_details_meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  > span {
+    position: relative;
+
+    &:not(:last-child) {
+      padding-right: 14px;
+      margin-right: 14px;
+      &::after {
+        content: '';
+        height: 12px;
+        width: 1px;
+        background-color: #5e5e5e;
+        opacity: 0.2;
+        position: absolute;
+        right: 0;
+        top: 5px;
+      }
+    }
+  }
+}
+.cs_post_details {
+  h1 {
+    font-size: 50px;
+    line-height: 1.4em;
+    font-weight: 700;
+    margin-bottom: 40px;
+    @media (max-width: 1199px) {
+      font-size: 46px;
+    }
+    @media (max-width: 991px) {
+      font-size: 36px;
+    }
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 1.4em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    @media (max-width: 991px) {
+      font-size: 24px;
+    }
+  }
+  p {
+    margin-bottom: 35px;
+  }
+  img {
+    margin-bottom: 40px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    li {
+      padding-left: 20px;
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        left: 5px;
+        top: 10px;
+        background-color: currentColor;
+      }
+    }
+  }
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+.cs_post_details_share_wrap,
+.cs_post_details_tags_wrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  h4 {
+    margin: 0;
+  }
+}
+.cs_post_details_share {
+  display: flex;
+  gap: 15px;
+}
+.cs_post_details_bottom {
+  display: flex;
+  gap: 10px 30px;
+  justify-content: space-between;
+}
+.cs_author_thumb {
+  flex: none;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.cs_author_card {
+  display: flex;
+  align-items: center;
+  gap: 30px 50px;
+  padding: 50px 0;
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+}
+.cs_author_social {
+  display: flex;
+  gap: 10px;
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
+  a {
+    width: 35px;
+    height: 35px;
+    color: $primary;
+    border: 1px solid $primary;
+    border-radius: 50%;
+    &:hover {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+}
+.cs_author_title {
+  margin-bottom: 10px;
+}

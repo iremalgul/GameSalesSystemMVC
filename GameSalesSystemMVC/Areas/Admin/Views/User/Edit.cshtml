@@ -1,0 +1,105 @@
+﻿@model GameSalesSystemMVC.Dtos.UserDto
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    string formattedDate = Model.DateOfBirth.ToString("yyyy-MM-dd");
+}
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">User Information</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <input hidden type="text" class="form-control form-control-user" id="Id"
+                                           value="@Model.Id">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="NameSurname"
+                                           placeholder="Name Surname" value="@Model.NameSurname">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="email" class="form-control form-control-user" id="Email"
+                                           placeholder="Email Address" value="@Model.Email">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="Username"
+                                           placeholder="Username" value="@Model.Username">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user"
+                                           id="Password" placeholder="Password" value="@Model.Password">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="Country"
+                                           placeholder="Country" value="@Model.Country">
+                                </div>
+                                <div class="form-group row">
+                                    <input type="date" class="form-control form-control-user" id="DateOfBirth"
+                                           placeholder="Date Of Birth" value="@formattedDate">
+                                </div>
+                                <button onclick="UpdateUser()" class="btn btn-primary btn-user btn-block">
+                                    Update
+                                </button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+@section scripts
+{
+    <script>
+
+
+        function UpdateUser() {
+            var userDto =
+            {
+                Id: $('#Id').val(),
+                NameSurname: $('#NameSurname').val(),
+                Email: $('#Email').val(),
+                Username: $('#Username').val(),
+                Password: $('#Password').val(),
+                Country: $('#Country').val(),
+                DateOfBirth: $('#DateOfBirth').val()
+            };
+
+            ajaxSendDataWithLoadingGetData(userDto, '/Admin/User/UpdateUser', $('body'), function (response) {
+                if (response.isSuccess) {
+                    SuccessMessage("Success", response.Message, function () {
+                        PageRedirect("/Admin/User/Index");
+                    });
+                }
+                else {
+                    ErrorMessage("Unsuccess", response.Message, function () {
+
+                    });
+                }
+            });
+
+
+        }
+
+    </script>
+}
+
+
+
+

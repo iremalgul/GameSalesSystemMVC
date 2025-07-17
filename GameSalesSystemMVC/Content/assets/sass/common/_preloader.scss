@@ -1,0 +1,125 @@
+/*--------------------------------------------------------------
+  2. Preloader
+----------------------------------------------------------------*/
+.cs_perloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+  background: #ffefee;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs_perloader_text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  color: $primary;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.cs_cart_animation {
+  display: block;
+  width: 10em;
+  height: 10em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cs_cart_lines,
+.cs_cart_top,
+.cs_cart_wheel_1,
+.cs_cart_wheel_2,
+.cs_cart_wheel_stroke {
+  animation: cartLines 2s ease-in-out infinite;
+}
+.cs_cart_lines {
+  stroke: $accent;
+}
+.cs_cart_top {
+  animation-name: cartTop;
+}
+.cs_cart_wheel_1 {
+  animation-name: cartWheel1;
+  transform: rotate(-0.25turn);
+  transform-origin: 43px 111px;
+}
+.cs_cart_wheel_2 {
+  animation-name: cartWheel2;
+  transform: rotate(0.25turn);
+  transform-origin: 102px 111px;
+}
+.cs_cart_wheel_stroke {
+  animation-name: cartWheelStroke;
+}
+.cs_cart_track {
+  stroke: rgba($accent, 0.2);
+  transition: stroke 0.3s;
+}
+
+/* Animations */
+@keyframes msg {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  99.9% {
+    opacity: 0;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes cartLines {
+  from,
+  to {
+    opacity: 0;
+  }
+  8%,
+  92% {
+    opacity: 1;
+  }
+}
+@keyframes cartTop {
+  from {
+    stroke-dashoffset: -338;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 338;
+  }
+}
+@keyframes cartWheel1 {
+  from {
+    transform: rotate(-0.25turn);
+  }
+  to {
+    transform: rotate(2.75turn);
+  }
+}
+@keyframes cartWheel2 {
+  from {
+    transform: rotate(0.25turn);
+  }
+  to {
+    transform: rotate(3.25turn);
+  }
+}
+@keyframes cartWheelStroke {
+  from,
+  to {
+    stroke-dashoffset: 81.68;
+  }
+  50% {
+    stroke-dashoffset: 40.84;
+  }
+}
